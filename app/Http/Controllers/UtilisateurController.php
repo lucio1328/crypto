@@ -63,6 +63,50 @@ class UtilisateurController extends Controller
             return redirect()->back()->with('error', 'Impossible de contacter l\'API : ' . $e->getMessage());
         }
     }
+
+
+    public function login(Request $request)
+    {
+        // Valider les données du formulaire
+        $request->validate([
+            'email' => 'required|email',
+            'mot_de_passe' => 'required|string|min:6', // Utilisation du nom correct
+        ]);
+
+        // Les données à envoyer à l'API
+        $credentials = [
+            'email' => $request->email,
+            'motDePasse' => $request->mot_de_passe, // Utilisation de mot_de_passe dans le corps de la requête
+        ];
+
+        // Appel de l'API de connexion
+        $response = Http::post('http://localhost:8080/utilisateurs/check-login', $credentials);
+
+        // Vérification si l'API a répondu avec succès
+        if ($response->successful()) {
+            $data = $response->json();
+
+            // Vérifier si le token existe
+            if (isset($data['data']['token'])) {
+                // Stocker le token JWT dans la session (ou un cookie sécurisé)
+                session(['jwt_token' => $data['data']['token']]);
+
+                return redirect()->route('dashboard')->with('success', 'Connexion réussie');
+            }
+
+            // Si le token est manquant
+            return back()->withErrors([
+                'login' => 'Erreur dans la récupération du token de connexion.',
+            ]);
+        }
+
+        // Gérer les erreurs retournées par l'API
+        $errorMessage = $response->json()['error'] ?? 'Erreur inconnue lors de la connexion.';
+        return back()->withErrors([
+            'login' => $errorMessage,
+        ]);
+    }
+
     public function store(Request $request)
     {
 

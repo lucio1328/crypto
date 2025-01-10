@@ -48,7 +48,10 @@ CREATE TABLE historique_cours(
    PRIMARY KEY(Id_historique_cours),
    FOREIGN KEY(Id_cryptos) REFERENCES cryptos(Id_cryptos)
 );
-
+ALTER TABLE historique_cours
+  ALTER COLUMN date_enregistrement TYPE TIMESTAMP
+  USING date_enregistrement::TIMESTAMP;
+  
 CREATE TABLE transactions(
    Id_transactions SERIAL,
    quantite INTEGER NOT NULL,

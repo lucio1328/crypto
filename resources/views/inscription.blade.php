@@ -71,6 +71,18 @@
                             <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
                         </form>
                     </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">
+                            Vous avez déjà un compte ?
+                            <a href="{{ route('login') }}" class="text-primary">Connectez-vous ici</a>.
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">
+                            Voir demo cours
+                            <a href="{{ route('chart') }}" class="text-secondary">Cliquez ici</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
