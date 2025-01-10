@@ -13,7 +13,7 @@ class AnalyseController extends Controller
     public function showAnalyseForm()
     {
         $cryptos = Crypto::all();
-        return view('analyse.form', compact('cryptos'));
+        return view('form');
     }
 
     public function generateAnalysis(Request $request)

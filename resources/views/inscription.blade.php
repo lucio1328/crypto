@@ -83,6 +83,12 @@
                             <a href="{{ route('chart') }}" class="text-secondary">Cliquez ici</a>.
                         </p>
                     </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">
+                            Analyse
+                            <a href="{{ route('analyse') }}" class="text-secondary">Analyse</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
