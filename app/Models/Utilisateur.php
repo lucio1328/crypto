@@ -16,7 +16,7 @@ class Utilisateur extends Model
 
     public $timestamps = false;
 
-    protected $primaryKey = 'Id_utilisateur';
+    protected $primaryKey = 'id_utilisateur';
 
     protected $keyType = 'int';
 
