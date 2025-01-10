@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\UtilisateurController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortefeuilleController;
 
 Route::get('/', function () {
-    return view('inscription');
+    return view('layout');
 });
-
-Route::post('/inscription', [UtilisateurController::class, 'inscription'])->name('inscription');
-
+Route::get('formPortefeuille', function () {
+    return view('insertionProtefeuille');
+});
+Route::get('/portefeuille/form', [PortefeuilleController::class, 'form']);
+Route::get('/portefeuille/list', [PortefeuilleController::class, 'list']);
+Route::post('/portefeuille/create', [PortefeuilleController::class, 'create']);
