@@ -7,17 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Portefeuille extends Model
 {
     // Nom de la table associée
+    public $timestamps = false;
     protected $table = 'portefeuilles';
 
     // Clé primaire
-    protected $primaryKey = 'Id_portefeuilles';
+    protected $primaryKey = 'id_portefeuilles';
 
     // Les colonnes modifiables en masse (mass assignable)
     protected $fillable = [
         'solde',
         'date_creation',
-        'Id_utilisateur',
-        'Id_cryptos',
+        'id_utilisateur',
+        'id_cryptos',
     ];
 
     // Indique que la clé primaire n'est pas un incrément auto si vous utilisez SERIAL
@@ -31,7 +32,7 @@ class Portefeuille extends Model
      */
     public function utilisateur()
     {
-        return $this->belongsTo(Utilisateur::class, 'Id_utilisateur');
+        return $this->belongsTo(Utilisateur::class, 'id_utilisateur');
     }
 
     /**
@@ -40,6 +41,7 @@ class Portefeuille extends Model
      */
     public function crypto()
     {
-        return $this->belongsTo(Crypto::class, 'Id_cryptos');
+        return $this->belongsTo(Crypto::class, 'id_cryptos');
     }
+
 }

@@ -2,26 +2,26 @@
 
 namespace App\Services;
 
-use App\Models\Portefeuille;
+use App\Models\Crypto;
 
-class PortefeuilleService
+class CryptoService
 {
     /**
      * Obtenir tous les portefeuilles
      */
     public function getAll()
     {
-        return Portefeuille::all();
+        return Crypto::all();
     }
 
     public function create(array $data)
     {
-        return Portefeuille::create($data);
+        return Crypto::create($data);
     }
 
     public function getById(int $id)
     {
-        return Portefeuille::findOrFail($id);
+        return Crypto::findOrFail($id);
     }
 
 }
