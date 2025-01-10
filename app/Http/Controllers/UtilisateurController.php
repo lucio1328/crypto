@@ -39,7 +39,7 @@ class UtilisateurController extends Controller
 
         // Appeler l'API de pré-inscription
         try {
-            $response = Http::post('http://localhost:8080/utilisateurs/pre-inscription', [
+            $response = Http::post('http://localhost:8080/api/pre-inscription', [
                 'nom' => $validated['nom'],
                 'email' => $validated['email'],
                 'motDePasse' => $validated['mot_de_passe'],
