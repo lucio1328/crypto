@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         <!-- Messages de succès ou d'erreur -->
-                        <!-- @if(session('success'))
+                        @if(session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
                             </div>
@@ -27,7 +27,7 @@
                             <div class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
-                        @endif -->
+                        @endif
 
                         <!-- Formulaire -->
                         <form action="{{ route('inscription') }}" method="POST">
